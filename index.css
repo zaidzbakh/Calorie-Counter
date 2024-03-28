@@ -1,119 +1,127 @@
 
+:root {
+  --light-grey: #f2f3f4;
+  --dark-blue: #030310;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #b9d9e0;
+  --dark-yellow: #489fb7;
+  --light-pink: #e4a8a8;
+  --dark-red: #850000;
+  --light-green: #7f9e36;
+}
+
+label{
+  color:black;
+}
+fieldset>legend{
+  color: black;
+}
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.container {
-  background-color: #fff;
-  width:30%;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  background-color: var(--fcc-blue);
+  color: var(--light-grey);
 }
 
 h1 {
   text-align: center;
-  color: #333;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 2px solid #ff5722; /* Couleur de bordure et épaisseur personnalisables */
-  padding-bottom: 10px;
 }
 
-input[type="number"] {
-  width: 150px;
+.container {
+  width: 90%;
+  max-width: 680px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--light-grey);
+  border-radius: 10px;
+}
+
+h1,
+.container,
+.output {
+  margin: 20px auto;
+}
+
+label,
+legend {
+  font-weight: bold;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="number"],
+input[type="text"] {
+  flex: 1; /* Occupe toute la largeur disponible */
   padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 10px; /* Ajout de marge entre chaque input */
+  border: 2px solid var(--dark-blue);
+  border-radius: 3px;
   outline: none;
 }
 
+input[type="number"]:hover,
+input[type="text"]:hover {
+  border-color: var(--dark-yellow); /* Changement de couleur de la bordure au survol */
+}
+
 button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  background-color: var(--light-yellow);
+  border: 2px solid var(--dark-yellow);
+  padding: 10px 20px;
+  border-radius: 3px;
+  outline: none; /* Ajout de la propriété outline */
+  transition: background-color 0.3s, border-color 0.3s; /* Ajout d'une transition pour une animation fluide */
 }
 
-button[type="submit"] {
-  background-color: #ff5722;
-  color: #fff;
+button:hover {
+  background-color: #ffd966; /* Changement de couleur au survol */
+  border-color: #ffcc00; /* Changement de couleur de la bordure au survol */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ajout d'une ombre au survol */
 }
 
-button[type="submit"]:hover {
-  background-color: #ff7043;
+button:active {
+  background-color: #ffcc00; /* Changement de couleur au clic */
+  border-color: #ff9900; /* Changement de couleur de la bordure au clic */
 }
 
-button[type="button"] {
-  background-color: #2196f3;
-  color: #fff;
+button,
+select {
+  min-height: 24px;
+  color: var(--dark-blue);
 }
 
-button[type="button"]:hover {
-  background-color: #1e87f0;
+fieldset,
+label,
+button,
+select {
+  margin-bottom: 10px;
 }
 
-#output {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 5px;
+.output {
+  border: 2px solid;
+  color: black;
+  padding: 10px;
   text-align: center;
-  background-color: #d8ee5f;
-  color: #333;
-  font-weight: bold;
-  animation: pulse 1s infinite alternate;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
 }
 
 .hide {
   display: none;
 }
 
-.container {
-  position: relative;
+.output span {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
-.container::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: linear-gradient(to right, #ff5722, #ff7043);
-  border-radius: 10px 10px 0 0;
+.surplus {
+  color: var(--light-pink);
+}
+
+.deficit {
+  color: var(--light-green);
 }
